@@ -1,4 +1,4 @@
-# analyzer.py
+
 import ast, sys
 
 def analyze(file):

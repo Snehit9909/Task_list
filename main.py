@@ -2,7 +2,6 @@ import importlib
 import os
 
 def load_plugins(folder="plugins"):
-    """Load all plugin modules that define a run(data) function."""
     plugins = []
     for file in os.listdir(folder):
         if file.endswith(".py"):
