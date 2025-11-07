@@ -1,0 +1,1 @@
+An operating system manages hardware and software resources. It handles memory, processes, and file systems. Examples include Windows, Linux, and macOS.

@@ -1,0 +1,1 @@
+Networking is the practice of connecting computers and other devices to share resources. Common protocols include TCP/IP, HTTP, and FTP. Network topologies include star, ring, and mesh.

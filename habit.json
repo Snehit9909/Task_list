@@ -1,0 +1,11 @@
+[
+  {"date": "2024-07-01", "habit": "exercise(gym)", "done": true},
+  {"date": "2024-07-02", "habit": "read", "done": true},
+  {"date": "2024-07-03", "habit": "swimming", "done": false},
+  {"date": "2024-07-04", "habit": "sleep", "done": true},
+  {"date": "2024-07-05", "habit": "cycling", "done": true},
+  {"date": "2024-07-06", "habit": "exercise(gym)", "done": true},
+  {"date": "2024-07-07", "habit": "cycling", "done": true},
+  {"date": "2024-07-08", "habit": "swimming", "done": true}
+  
+]
