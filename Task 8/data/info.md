@@ -1,0 +1,1 @@
+Decorators in Python are a powerful and elegant way to modify or enhance the behavior of functions or methods without directly altering their source code. They essentially wrap another function, allowing you to add pre-processing, post-processing, or other functional enhancements.
