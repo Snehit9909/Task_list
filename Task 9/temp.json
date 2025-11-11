@@ -1,0 +1,18 @@
+{
+  "polite_rephrasing": {
+    "keywords": ["please", "kindly"],
+    "template": "Could you please {task}?"
+  },
+  "summarization": {
+    "keywords": ["summarize", "shorten"],
+    "template": "Summarize the following text: {text}"
+  },
+  "tone_adjustment": {
+    "keywords": ["formal", "casual"],
+    "template": "Rewrite this in a {tone} tone: {text}"
+  },
+  "clean_text": {
+    "keywords": ["clean", "remove noise"],
+    "template": "Clean the following text: {text}"
+  }
+}
