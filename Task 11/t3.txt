@@ -1,0 +1,1 @@
+FAISS is a library developed by Facebook AI Research for efficient similarity search and clustering of dense vectors.
