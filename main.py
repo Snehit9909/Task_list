@@ -1,25 +1,40 @@
-import importlib
-import os
+from fastapi import FASTAPI
+from pydantic import BaseModel
+from langchain_core.prompts import PromptTemplate
 
-def load_plugins(folder="plugins"):
-    plugins = []
-    for file in os.listdir(folder):
-        if file.endswith(".py"):
-            name = file[:-3]
-            module = importlib.import_module(f"{folder}.{name}")
-            if hasattr(module, "run"):
-                plugins.append(module.run)
-    return plugins
+def transform_text(task: str, text: str) -> str:
+    if task == "reverse":
+        return text[::-1]
+    elif task == "keywords":
+        return ", ".join(text.split()[:5])  
+    elif task == "summarize":
+        return "Summary: " + text[:50] + "..." 
+    else:
+        return f"Unknown task '{task}'"
 
-def main():
-    data = "Welcome to India"
-    print("Original:", data)
+class LocalChain:
+    def __init__(self, prompt: PromptTemplate):
+        self.prompt = prompt
 
-    # Load and apply plugins in sequence
-    for plugin in load_plugins():
-        data = plugin(data)
+    def run(self, task: str, text: str):
+        formatted = self.prompt.format(task=task, text=text)
+        result = transform_text(task, text)
+        return {"input": formatted, "output": result}
 
-    print("Final:", data)
+app = FastAPI()
 
-if __name__ == "__main__":
-    main()
+class ChainRequest(BaseModel):
+    task: str
+    text: str
+
+prompt = PromptTemplate(
+    input_variables=["task", "text"],
+    template="Perform the task '{task}' on the following text:\n{text}"
+)
+
+chain = LocalChain(prompt)
+
+@app.post("/run_chain")
+async def run_chain(req: ChainRequest):
+    result = chain.run(req.task, req.text)
+    return result
